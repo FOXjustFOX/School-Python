@@ -6,7 +6,7 @@ licznik = 0
 for i in range(n):
     if t[i] == "a":
         licznik += 1
-    
+
 print(licznik)
 
 """
@@ -20,3 +20,6 @@ print(
     t[: :-1]
 )
 """
+
+
+print("tekst")

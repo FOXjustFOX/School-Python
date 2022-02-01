@@ -11,7 +11,7 @@ a.rt(45)
 a.fd(-50)
 b.rt(45)
 b.fd(150)
-b.up() # podnieś pisak
+b.up() # podnieś pisakfun 
 b.fd(50)
 b.down() # opuść pisak
 b.fd(50)
