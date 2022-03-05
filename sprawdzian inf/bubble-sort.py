@@ -16,4 +16,5 @@ for j in range(n-1):
 
 time = time.time() - t
 
+print("\n", L,"\n")
 print("czas sortowania", time)
