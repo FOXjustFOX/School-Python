@@ -16,6 +16,9 @@ for i in range(65,91):
 
 # 3. Szyfr Cezara
 
+# do sprawdzianu chyba będzie tylko potrzebne szyfrowanie 
+
+#czyli tylko to:
 def szyfr(t, k):
     k = k % 26
     print(t)
@@ -27,7 +30,7 @@ def szyfr(t, k):
 
 
 
-
+#to jest deszyfrowanie
 def de_szyfr(t, k):
     k %= 26
     print(t)
@@ -39,6 +42,7 @@ def de_szyfr(t, k):
 
         
 
+# a to kod który podaje czy użytkownik chce szyfrować czy deszyfrować
 print("1 = szyfr")
 print("2 = deszyfr")
 a = int(input("szyfr czy deszyfr? "))

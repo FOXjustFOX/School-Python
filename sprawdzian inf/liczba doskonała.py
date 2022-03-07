@@ -8,10 +8,10 @@ while True:
             if a % i == 0:       #jeżeli liczba i  jest dzielnikiem liczby x
                 wyniki.append(i) #to dodaj ją do listy wyników 
 
-        for i in wyniki:
+        for i in wyniki: # dodajemy wszystkie dzielniki tej liczby
             suma += i
             
-        if suma == a:
+        if suma == a: # i sprawdzamy czy ta liczba jest równa sumie swoich dzielników
             print("Tak! liczba", a, "jest liczbą doskonałą")
             break
 

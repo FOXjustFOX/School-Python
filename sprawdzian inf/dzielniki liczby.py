@@ -8,7 +8,7 @@ if a > 0:   #sprawdza czy liczba jest liczbą naturalną
         if a % i == 0:       #jeżeli liczba i  jest dzielnikiem liczby x
             wyniki.append(i) #to dodaj ją do listy wyników 
     wyniki.append(a) #na koniec wypisujemy liczbe x - ona też jest swoim dzielnikiem
-    print("Dzielników liczby", a, "jest", len(wyniki), "i są to:\n",wyniki, )
+    print("Dzielników liczby", a, "jest", len(wyniki), "i są to:\n",wyniki, ) #tu można drukować sam wynik, ale tak jak jest, jest fancy
 else:
-    print("Błąd, niewłaściwe dane")
+    print("Błąd, niewłaściwe dane") #jeśli liczba nie jest naturalna wydrukuj to
 
