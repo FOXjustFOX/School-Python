@@ -13,7 +13,6 @@ t = time.time()
 
 for j in range(n-1):
     for i in range(n-1-j):
-        print(n-1-j)
         if L[i]> L[i+1]:
             L[i], L[i+1] = L[i+1] , L[i]
 
