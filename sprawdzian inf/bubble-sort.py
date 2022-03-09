@@ -12,7 +12,6 @@ print("\n", L,"\n")
 t = time.time()
 
 for j in range(n-1):
-    print(j)
     for i in range(n-1-j):
         print(n-1-j)
         if L[i]> L[i+1]:
