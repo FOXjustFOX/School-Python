@@ -1,3 +1,5 @@
+"""key strokes"""
+
 from pynput import keyboard
 
 def on_press(key):
