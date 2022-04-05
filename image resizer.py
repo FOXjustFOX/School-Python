@@ -1,3 +1,5 @@
+"""image resizer"""
+
 from PIL import Image
 import os
 b = 0
