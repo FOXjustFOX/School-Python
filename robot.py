@@ -1,3 +1,5 @@
+"""poruszanie się robota"""
+
 a = str(input("podaj ciąg: "))
 x = 0
 y = 0
