@@ -1,3 +1,5 @@
+"""liczby zaprzyjaźnione"""
+
 def dzielniki(liczba):
 
     wyniki = [] 
