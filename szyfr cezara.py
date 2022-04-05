@@ -1,3 +1,5 @@
+"""szyfr ceara"""
+
 # 1. Kod ASCII
 ord("a")  # zamienia znak na liczbę w kodzie ASCII
 ord("z")
