@@ -1,3 +1,5 @@
+"""sito eratostenesa wartości true"""
+
 from math import *
 a = int(input("Podaj liczbę do której będziemy wyznaczać: "))
 tablica = [True] * (a+1)  #tworzymy tablicę z wartościami True o długości 'a+1'
