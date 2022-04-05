@@ -1,3 +1,5 @@
+"""liczba doskonała"""
+
 a = int(input("podaj liczbę: ")) #wprować zmienną której dzielników będziemy szukać
 wyniki = [] # tworzymy listę, w którą włożymy dzielniki liczby a
 suma = 0
