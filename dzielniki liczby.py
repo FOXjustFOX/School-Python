@@ -1,3 +1,5 @@
+"""dzielniki liczb"""
+
 a = int(input("podaj liczbę do wyznaczania dzialników: ")) #wprować zmienną której dzielników będziemy szukać
 wyniki = [] # tworzymy listę, w którą włożymy dzielniki liczby a
 
