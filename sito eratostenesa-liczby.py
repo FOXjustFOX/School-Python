@@ -1,3 +1,5 @@
+"""sito eratostenesa liczby"""
+
 from math import *
 
 #Robi to samo co sito reatostenesa-True-list ale tu od początku mamy listę z cyframi
