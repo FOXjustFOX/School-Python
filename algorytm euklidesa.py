@@ -1,3 +1,5 @@
+"""algorytm euklidesa poprzez modulo"""
+
 a = int(input("podaj 1 liczbę: "))
 b = int(input("podaj 2 liczbę: "))
 
