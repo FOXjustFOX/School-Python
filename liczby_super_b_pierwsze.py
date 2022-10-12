@@ -2,7 +2,7 @@ import time
 
 t0 = time.time()
 
-a, b = map(int, input().split(" "))
+a, b = 2,100#map(int, input().split(" "))
 
 tablica = []
 
@@ -28,11 +28,23 @@ def eratost(a, b):
     yes = []
 
     for n in tablica:
-        if bin(n).count("1") in tablica and sum(int(char) for char in str(n)) in tablica and n >= a:
+        suma = 0
+        f = n
+        while f > 0:
+            suma += f%10
+            f = f // 10
+        
+        suma2 = 0
+        g = n
+        while g > 0:
+            suma2 += g%2
+            g = g // 2
+        
+        if suma in tablica and suma2 in tablica and n >= a:
             yes.append(n)
 
 
-    print(yes)
+    print(*yes)
 
     t1 = time.time()
 
@@ -76,82 +88,107 @@ def other(a, n):
         if not(prime(i) and prime(digit_sum(i))):
             tab2.remove(i)
 
-    print(tab2)
+    print(*tab2)
     t1 = time.time()
 
     print("time other: ", t1-t0, end="\n")
 
 
 
-def SieveOfAtkin(d, limit):
-    
+def atkin(d, limit):
+
     t0 = time.time()
-    
+
     tab = []
 
-    
+    yes = 0
+
+    sieve = [False] * (limit + 1) 
+
     if limit > 2:
-        tab.append(2)
+        sieve[2] = True
+        
     if limit > 3:
-        tab.append(3)
- 
-    sieve = [False] * (limit + 1)
-    for i in range(0, limit + 1):
-        sieve[i] = False
- 
-    
+        sieve[3] = True
+
+
+    '''Mark sieve[n] is True if
+    one of the following is True:
+    a) n = (4*x*x)+(y*y) has odd
+    number of solutions, i.e.,
+    there exist odd number of
+    distinct pairs (x, y) that
+    satisfy the equation and
+    n % 12 = 1 or n % 12 = 5.
+    b) n = (3*x*x)+(y*y) has
+    odd number of solutions
+    and n % 12 = 7
+    c) n = (3*x*x)-(y*y) has
+    odd number of solutions,
+    x > y and n % 12 = 11 '''
+
     x = 1
     while x * x <= limit:
         y = 1
         while y * y <= limit:
- 
+
         
             n = (4 * x * x) + (y * y)
             if (n <= limit and (n % 12 == 1 or
                                 n % 12 == 5)):
                 sieve[n] ^= True
- 
+
             n = (3 * x * x) + (y * y)
             if n <= limit and n % 12 == 7:
                 sieve[n] ^= True
- 
+
             n = (3 * x * x) - (y * y)
             if (x > y and n <= limit and
                     n % 12 == 11):
                 sieve[n] ^= True
             y += 1
         x += 1
- 
+
     r = 5
     while r * r <= limit:
         if sieve[r]:
             for i in range(r * r, limit+1, r * r):
                 sieve[i] = False
- 
+
         r += 1
- 
-        
-    for a in range(5, limit+1):
-        if sieve[a]:
-            tab.append(a)
-    
-    
-    yes = []
 
-    for n in tab:
-        if bin(n).count("1") in tab and sum(int(char) for char in str(n)) in tab and n >= d:
-            yes.append(n)
 
-    print(len(yes))
+    for n in range(2, limit+1):
+        if sieve[n]:
+            suma = 0
+            f = n
+            while f > 0:
+                suma += f%10
+                f = f // 10
+
+            suma2 = 0
+            g = n
+            while g > 0:
+                suma2 += g%2
+                g = g // 2
+
+            if sieve[suma] == True and sieve[suma2] == True and n >= d:
+                print(n, end=" ")
+                yes += 1
 
     t1 = time.time()
+    print()#yes)    !!!!!!!!!! to powinno się drukowac
+    
+    print("time atkin: ", t1-t0)
 
-    print("atkin: ", t1 - t0)
+
+    # print(f"\nLiczba super-b-pierwszych w zakresie {d} do {limit:,}:\n".replace(",", "."),yes, "\n")
 
 
+    # print("working time: %.5fs" %(t1-t0))
 
 eratost(a, b)
 
 other(a, b)
 
-SieveOfAtkin(a, b)
+atkin(a, b)
