@@ -1,12 +1,9 @@
 import time
+from math import sqrt 
 
 t0 = time.time()
 
-a, b = 2,100#map(int, input().split(" "))
-
-tablica = []
-
-
+a, b = 2,1000000#map(int, input().split(" "))
 
 def eratost(a, b):
 
@@ -173,22 +170,73 @@ def atkin(d, limit):
                 g = g // 2
 
             if sieve[suma] == True and sieve[suma2] == True and n >= d:
-                print(n, end=" ")
+                # print(n, end=" ")
                 yes += 1
 
     t1 = time.time()
-    print()#yes)    !!!!!!!!!! to powinno się drukowac
+    print("Ile liczb: ",yes)
     
-    print("time atkin: ", t1-t0)
+    print("Time: ", t1-t0)
 
 
-    # print(f"\nLiczba super-b-pierwszych w zakresie {d} do {limit:,}:\n".replace(",", "."),yes, "\n")
+
+def Atkin_2(d, limit):
+
+    t0 = time.time()
+
+    if d<2:     # checking if the range is correct
+        d=2
+    limit += 1
+
+    # sieve Eratostnesa
+    E = [True]*limit   
+    E[1] = False               
+    for i in range(2,int(limit**0.5+1)):
+        if E[i] == True:
+            for j in range(2*i,limit,i):
+                E[j] = False
+
+    # digit sum
+    def ds(n,s): 
+        suma = 0
+        while n>0:
+            suma += n%s
+            n //= s
+        return suma
+
+    # if prime number
+    def pn(n):
+        if n<2:
+            return False
+        if n==2:
+            return True
+        if n%2==0:
+            return False
+        for i in range(3,int(n**0.5)+1,2):
+            if n%i==0:
+                return False
+        return True
 
 
-    # print("working time: %.5fs" %(t1-t0))
+    suma = 0
 
-eratost(a, b)
+    #algorythm
+    for i in range(d,limit):
+        if E[i]==True:
+            if E[ds(i,10)] and E[ds(i,2)]:
+                suma += 1
 
-other(a, b)
+    print(suma)
+
+    t1 = time.time()
+
+    print("time: ", t1 - t0)
+
+
+#eratost(a, b)
+
+#other(a, b)
 
 atkin(a, b)
+
+Atkin_2(a, b)

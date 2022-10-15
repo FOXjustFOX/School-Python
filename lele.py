@@ -1,14 +1,46 @@
-import tkinter as tk
- 
-    
-#def main():
-#    root = tk.Tk()
-#    root.withdraw()
-#    tk.Message('alert title', 'Bad things happened!')
-#    
-#if __name__ == '__main__':
-#    main()
-#    
-#    
+d,limit = map(int, input().split(" "))
 
 
+if d<2:     # checking if the range is correct
+    d=2
+limit += 1
+
+# sieve Eratostnesa
+E = [True]*limit 
+E[1] = False                 
+for i in range(2,int(limit**0.5+1)):
+    if E[i] == True:
+        for j in range(2*i,limit,i):
+            E[j] = False
+
+# digit sum
+def ds(n,s): 
+    suma = 0
+    while n>0:
+        suma += n%s
+        n //= s
+    return suma
+
+# if prime number
+def pn(n):
+    if n<2:
+        return False
+    if n==2:
+        return True
+    if n%2==0:
+        return False
+    for i in range(3,int(n**0.5)+1,2):
+        if n%i==0:
+            return False
+    return True
+
+
+suma = 0
+
+#algorythm
+for i in range(d,limit):
+    if E[i]==True:
+        if E[ds(i,10)] and E[ds(i,2)]:
+            suma += 1
+
+print(suma)

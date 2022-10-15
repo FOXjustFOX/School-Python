@@ -1,12 +1,12 @@
 from itertools import permutations 
 
-l = 10#int(input())
+l = int(input())
 
-w = ['liszka', 'tuba', 'tuba', 'klisza', 'kretes', 'anakonda', 'sekret', 'szalik', 'buta', 'tabu']
+w = []#['liszka', 'tuba', 'tuba', 'klisza', 'kretes', 'anakonda', 'sekret', 'szalik', 'buta', 'tabu']
 
-# for i in range(l):
-#     word = input()
-#     w.append(word)
+for i in range(l):
+    word = input()
+    w.append(word)
 
 w.sort(key=len)
 
@@ -47,46 +47,34 @@ s = 1
 
 for i in w:
     if len(i) > 1:
-        # for j in permutations(i,2):
-        #     if char_frequency(j[0]) == char_frequency(j[1]):
-
-        #         if (len(j[0]) in yes) and (j[0] in yes[len(j[0])]) and (j[1] in yes[len(j[0])]):
-        #             break
-
-        #         elif (len(j[0]) in yes) and (j[0] in yes[len(j[0])]):
-        #             yes[len(j[0])] += j[1] + " "
-                    
-        #         elif len(j[0]) in yes and j[1] in yes[len(j[0])]:
-        #             yes[len(j[0])] += j[0] + " "
-
-        #         else:
-        #             yes[len(j[0])] = j[0] + " "
-
-        #     else:
-        #         print("no", j[0], j[1])
-
         for j in i:
-            if len(j) in yes:
-                if yes[len(j)][0] != j:
-                    if char_frequency((yes[len(j)])[0]) == char_frequency(j):
-                        yes[len(j)].append(j)
-                    
-                    else:
-                        yes[len(j)+s] = [j]
-                
-            elif len(j)+s in yes:
-                if yes[len(j)+s][0] != j:
-                    if char_frequency(yes[len(j)+s[0]]) == char_frequency(j):
+            s = 0
+            while True:
+                if len(j)+s in yes:
+                    if yes[len(j)+s][0] == j:
+                        break
+                    if char_frequency((yes[len(j) + s])[0]) == char_frequency(j):
                         yes[len(j)+s].append(j)
+                        break
+                        
+                    else:
+                        s+=1
+                        
+                else:
+                    yes[len(j)+s] = [j]
+                    break
                     
-
-            else:
-                yes[len(j)] = [j]
 
     else:
         yes[len(i[0])] = [i[0]]
 
+w = []
+
 for v in yes.values():
     v.sort()
+    w.append(v)
 
-print(yes)
+w.sort()
+
+for i in w:
+    print(' '.join(i))
