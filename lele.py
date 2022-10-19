@@ -1,46 +1,79 @@
-d,limit = map(int, input().split(" "))
+
+l = int(input())
+
+w = []#['abba', 'bbaa', 'aabb', 'baab', 'abab', 'baba', 'tsttt', 'ttttt', 'stsss', 'stttt']
+
+for i in range(l):
+    word = input()
+    w.append(word)
+
+w.sort(key=len)
+
+def divideList(lst):
+    dct = {}
+
+    for element in lst:
+        if len(element) not in dct:
+            dct[len(element)] = [element]
+        elif len(element) in dct:
+            dct[len(element)] += [element]
+    
+    res = []
+    for key in sorted(dct):
+        res.append(dct[key])
+    
+    return res
 
 
-if d<2:     # checking if the range is correct
-    d=2
-limit += 1
-
-# sieve Eratostnesa
-E = [True]*limit 
-E[1] = False                 
-for i in range(2,int(limit**0.5+1)):
-    if E[i] == True:
-        for j in range(2*i,limit,i):
-            E[j] = False
-
-# digit sum
-def ds(n,s): 
-    suma = 0
-    while n>0:
-        suma += n%s
-        n //= s
-    return suma
-
-# if prime number
-def pn(n):
-    if n<2:
-        return False
-    if n==2:
-        return True
-    if n%2==0:
-        return False
-    for i in range(3,int(n**0.5)+1,2):
-        if n%i==0:
-            return False
-    return True
+def char_frequency(word):
+    frequency  = {}
+    for char in word:
+        #if character  is in frequency then increment the value
+        if char in frequency:
+            frequency[char] += 1
+        #else add character and set it to 1
+        else:
+            frequency[char] = 1
+    return frequency 
 
 
-suma = 0
+w = divideList(w)
+yes = {
 
-#algorythm
-for i in range(d,limit):
-    if E[i]==True:
-        if E[ds(i,10)] and E[ds(i,2)]:
-            suma += 1
+}
 
-print(suma)
+s = 1
+
+for i in w:
+    if len(i) > 1:
+        for j in i:
+            s = 0
+            while True:
+                if len(j)+s in yes:
+                    if yes[len(j)+s][0] == j:
+                        break
+                    if char_frequency((yes[len(j) + s])[0]) == char_frequency(j):
+                        yes[len(j)+s].append(j)
+                        break
+                        
+                    else:
+                        s+=1
+                        
+                else:
+                    yes[len(j)+s] = [j]
+                    break
+                    
+
+    else:
+        yes[len(i[0])] = [i[0]]
+
+w = []
+
+for v in yes.values():
+    v.sort()
+    w.append(v)
+
+w.sort()
+
+for i in w:
+    print(' '.join(i))
