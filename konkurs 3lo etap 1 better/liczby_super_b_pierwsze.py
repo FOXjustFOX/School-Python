@@ -3,7 +3,7 @@ from math import sqrt
 
 t0 = time.time()
 
-a, b = 2,1000000#map(int, input().split(" "))
+a, b = map(int, input().split(" "))
 
 def eratost(a, b):
 
@@ -239,4 +239,6 @@ def Atkin_2(d, limit):
 
 atkin(a, b)
 
+
+#this is the best one
 Atkin_2(a, b)
