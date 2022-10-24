@@ -1,0 +1,1 @@
+/home/gitpod/.pyenv/shims/python "/workspace/School-Python/%program name%"
