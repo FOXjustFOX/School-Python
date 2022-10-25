@@ -11,4 +11,7 @@ for x in range(1,r+1):
         elif (x**2+y**2)**0.5 < r:
             ins += 1
 
-print("\n",on*4, ins*4+1)#+1 because of (0,0)
+print(on*4, ins*4+1)#+1 because of (0,0) point
+
+
+
