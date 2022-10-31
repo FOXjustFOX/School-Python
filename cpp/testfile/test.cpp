@@ -1,7 +1,11 @@
 #include <cstddef>
+#include <cstdio>
+#include <fstream>
+#include <ios>
 #include <iostream> // thanks to this we are able to get user input and much more
 #include <string> // we can use strings
 #include "cmath" // math 
+#include "fstream"
 
 using namespace std; // standard ... without it, cout would be "std::cout"
 
@@ -17,7 +21,24 @@ void list();
 void strings();
 void pointer();
 void swapnum();
+void connect(){
+    string bra = "";
+    for (int i = 0; i<500001; i++) {
+        bra.push_back('(');
+    }
+        cout << bra;
+    for (int i = 0; i<500001; i++) {
+        bra.push_back(')');
+    }
 
+    ofstream myfile;
+    myfile.open("text.txt", ios_base::app);
+    myfile << bra;
+    myfile.close();
+
+}
+
+void readline();
 // functions can have declarations inside the (brackets), devided with commas
 // and a default argument value (string default_ex = "your_mom")
 // functions can return something BUT!
@@ -37,16 +58,30 @@ int myFunction(int x){
 
 // main function
 int main(){ 
-    prinrname(); 
-    math();
-    if_statment();
-    switch_case();
-    while_loop();
-    for_loop();
-    list();
-    strings();
-    pointer();
+    // prinrname(); 
+    // math();
+    // if_statment();
+    // switch_case();
+    // while_loop();
+    // for_loop();
+    // list();
+    // strings();
+    // pointer();
+    // connect();
+    readline();
     return 0; // end the function
+}
+// reads each line of the file and prints it
+void readline(){
+    string line;
+    ifstream myfile ("text.txt");
+    if (myfile.is_open()){
+        while ( getline (myfile,line) ){
+            cout << line << '\n';
+        }
+        myfile.close();
+    }
+    else cout << "Unable to open file";
 }
 
 
@@ -227,7 +262,6 @@ void swapnum(int &num1, int &num2){
     num1  = num2;
     num2 = z;
 }
-
 
 
 
