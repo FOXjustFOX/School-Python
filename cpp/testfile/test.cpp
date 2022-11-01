@@ -67,8 +67,8 @@ int main(){
     // list();
     // strings();
     // pointer();
-    connect();
-    // readline();
+    // connect();
+    readline();
     return 0; // end the function
 }
 // reads each line of the file and prints it

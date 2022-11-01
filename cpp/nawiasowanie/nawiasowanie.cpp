@@ -14,6 +14,7 @@ int main(){
 
     // int a = 10;   
     int b ;
+
     // cin >> a >> b;
 
     string brackets;
@@ -24,6 +25,12 @@ int main(){
     cin >> b >> brackets;
 
     // auto t0 = chrono::high_resolution_clock::now();
+    myfile.open("text.txt", ios_base::app);
+    myfile >> brackets;
+
+    // cin >> brackets;
+
+    auto t0 = chrono::high_resolution_clock::now();
 
     int maxcurve = 0; // max bracket value
     int maxcurveplace = 0; // it's place in the string
@@ -36,6 +43,7 @@ int main(){
         maxcurve = 0;
         maxcurveplace = 0;
     
+
         for (int i = 0; i < brackets.length()+1; i++) {
             if (brackets[i] == '('){
                 ph++; // if open bracket then add to placeholder value
@@ -48,6 +56,7 @@ int main(){
             }
         }
         
+
         for (int i = maxcurve; i > b; i -= 2, maxcurveplace -= 2) {
             brackets[maxcurveplace] == '(' ? brackets[maxcurveplace] = ')' : brackets[maxcurveplace] = '(';
             brackets[maxcurveplace] == ')' ? brackets[maxcurveplace+1] = '(' : brackets[maxcurveplace+1] = ')';
@@ -59,17 +68,17 @@ int main(){
 
         
     }while (maxcurve > b);
-        // cout << brackets.substr(0,500000) << '\n';
 
 
-    // }
 
-    // auto t1 = chrono::high_resolution_clock::now();
+    
 
-    // chrono::duration<double> elapsed = t1-t0;
+    auto t1 = chrono::high_resolution_clock::now();
+
+    chrono::duration<double> elapsed = t1-t0;
 
     cout << maxcurve << ' ' << brackets << ' ' << changes << '\n';
-    // cout << elapsed.count() << '\n';
+    cout << elapsed.count() << '\n';
 
     return 0;
 }

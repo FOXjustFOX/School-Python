@@ -19,9 +19,6 @@ int main(){
     int changes = 0;
 
 
-    
-        maxcurve = 0;
-    
         for (int i = 0; i < brackets.length()+1; i++) {
             if (brackets[i] == '('){
                 ph++; // if open bracket then add to placeholder value
@@ -41,11 +38,10 @@ int main(){
             changes += 2;
         
         }
-    
 
-    
 
     cout << changes << '\n' ;
+
 
     return 0;
 }
