@@ -2,9 +2,9 @@ import time
 
 a,b = map(int, input().split(" "))
 
-#c = [True]*a#['(', '(', ')', '(', '(', ')', ')', ')']
+c = [True]*a#['(', '(', ')', '(', '(', ')', ')', ')']
 
-c = ['(', '(', '(', ')', ')', ')', '(', ')']#['(']*500000+[')']*500000#input()#
+d = input()#['(', '(', '(', ')', ')', ')', '(', ')']#['(']*500000+[')']*500000#input()#
 
 t0 = time.time()
 
@@ -15,11 +15,11 @@ changes = 0 # value of changes made to the list
 ph = 0
 
 
-# for i in d:
-#     if i == ")":
-#         c[ph] = False
-#     ph += 1
-    # c.append(i)
+for i in d:
+    if i == ")":
+        c[ph] = False
+    ph += 1
+    c.append(i)
 
 # print(c)
 
@@ -43,6 +43,7 @@ for z in range(int(len(c)/2)):
     # print("\n", mx, p)
 
     if mx <= b:
+        print(c)
         print(changes)
         break
     

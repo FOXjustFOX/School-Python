@@ -3,7 +3,7 @@
     "python"
   ],
   "cSpell.language": "en,pl",
-  "C_Cpp_Runner.cCompilerPath": "gcc",
+  "C_Cpp_Runner.cCompilerPath": "/usr/bin/gcc",
   "C_Cpp_Runner.cppCompilerPath": "/usr/bin/g++",
   "C_Cpp_Runner.debuggerPath": "/usr/bin/gdb",
   "C_Cpp_Runner.cStandard": "",
@@ -30,5 +30,6 @@
     "**/.*/**",
     "**/.vscode",
     "**/.vscode/**"
-  ]
+  ],
+  "C_Cpp_Runner.useMsvc": false
 }
