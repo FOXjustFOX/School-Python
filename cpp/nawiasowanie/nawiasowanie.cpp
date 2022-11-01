@@ -13,7 +13,7 @@ using namespace std;
 int main(){
 
     // int a = 10;   
-    int b ;
+    int b;
 
     // cin >> a >> b;
 
@@ -24,11 +24,6 @@ int main(){
 
     cin >> b >> brackets;
 
-    // auto t0 = chrono::high_resolution_clock::now();
-    myfile.open("text.txt", ios_base::app);
-    myfile >> brackets;
-
-    // cin >> brackets;
 
     auto t0 = chrono::high_resolution_clock::now();
 
