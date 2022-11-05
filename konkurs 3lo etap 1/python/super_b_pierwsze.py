@@ -1,5 +1,5 @@
 
-def Atkin_2(d, limit):
+def SBP(d, limit):
 
 
     if d<2:     # checking if the range is correct
@@ -49,4 +49,4 @@ def Atkin_2(d, limit):
 
 a,b = map(int, input().split())
 
-Atkin_2(a,b)
+SBP(a,b)

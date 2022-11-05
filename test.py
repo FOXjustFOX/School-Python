@@ -1,21 +1,19 @@
-
 def Atkin_2(d, limit):
-
 
     if d<2:     # checking if the range is correct
         d=2
     limit += 1
 
     # sieve Eratostnesa
-    E = [True]*limit   
-    E[1] = False               
+    E = [True]*limit
+    E[1] = False
     for i in range(2,int(limit**0.5+1)):
         if E[i] == True:
             for j in range(2*i,limit,i):
                 E[j] = False
 
     # digit sum
-    def ds(n,s): 
+    def ds(n,s):
         suma = 0
         while n>0:
             suma += n%s
@@ -36,16 +34,15 @@ def Atkin_2(d, limit):
         return True
 
 
-    suma = []
+    suma = 0
 
     #algorythm
     for i in range(d,limit):
-        if pn(i)==True:
-            if pn(ds(i,10)) and pn(ds(i,2)):
-                suma.append(i)
-    print(len(suma))
+        if E[i]==True:
+            if E[ds(i,10)] and E[ds(i,2)]:
+                suma += 1
 
-
+    print(suma)
 
 a,b = map(int, input().split())
 
