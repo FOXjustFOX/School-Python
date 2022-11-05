@@ -1,31 +1,27 @@
-l = int(input())
+n = int(input())
+jewels = []
 
-w = []
+for i in range(n):
+    jewels.append(input())
 
-for i in range(l):
-    word = input()
-    w.append(word)
+jewels.sort(key= lambda x: (len(x) + 1) ** 15 + ord(x[0]))
+for _ in range(5):
+    for i in range(len(jewels)):
+        try:
+            jewel = jewels[i]
+            nexjewel = jewels[i+1]
+        except IndexError:
+            pass
+        else:
+            if len(jewel) == len(nexjewel):
+                j = 0
+                while jewel[j] == nexjewel[j]:
+                    j+=1
 
-w.sort(key=len)
+                else:
+                    if ord(jewel[j]) > ord(nexjewel[j]):
+                        jewels[i], jewels[i+1] = nexjewel, jewel
 
-def divideList(lst):
-    dct = {}
- 
-    for element in lst:
-        if len(element) not in dct:
-            dct[len(element)] = [element]
-        elif len(element) in dct:
-            dct[len(element)] += [element]
-     
-    res = []
-    for key in sorted(dct):
-        res.append(dct[key])
-     
-    return res
 
-w = divideList(w)
-
-for i in w:
-    i.sort()
-    for j in i:
-        print(j)
+for jewel in jewels:
+    print(jewel)

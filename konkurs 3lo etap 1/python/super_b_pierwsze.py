@@ -7,15 +7,15 @@ def Atkin_2(d, limit):
     limit += 1
 
     # sieve Eratostnesa
-    E = [True]*limit   
-    E[1] = False               
+    E = [True]*limit
+    E[1] = False
     for i in range(2,int(limit**0.5+1)):
         if E[i] == True:
             for j in range(2*i,limit,i):
                 E[j] = False
 
     # digit sum
-    def ds(n,s): 
+    def ds(n,s):
         suma = 0
         while n>0:
             suma += n%s
