@@ -11,4 +11,5 @@ def nwd(a,b):
             b = b - a
     return a
 
+
 print(a*b//nwd(a,b))
