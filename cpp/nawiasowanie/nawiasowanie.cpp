@@ -6,25 +6,17 @@
 #include "chrono"
 #include "fstream"
 
-
 using namespace std;
 
-
 int main(){
-
     // int a = 10;   
     int b;
-
     // cin >> a >> b;
-
     string brackets;
     ifstream myfile;
     // myfile.open("text.txt", ios_base::app);
     // myfile >> brackets;
-
     cin >> b >> brackets;
-
-
     auto t0 = chrono::high_resolution_clock::now();
 
     int maxcurve = 0; // max bracket value
@@ -37,7 +29,6 @@ int main(){
     do{
         maxcurve = 0;
         maxcurveplace = 0;
-    
 
         for (int i = 0; i < brackets.length()+1; i++) {
             if (brackets[i] == '('){
@@ -50,23 +41,16 @@ int main(){
                 ph--;
             }
         }
-        
 
         for (int i = maxcurve; i > b; i -= 2, maxcurveplace -= 2) {
             brackets[maxcurveplace] == '(' ? brackets[maxcurveplace] = ')' : brackets[maxcurveplace] = '(';
             brackets[maxcurveplace] == ')' ? brackets[maxcurveplace+1] = '(' : brackets[maxcurveplace+1] = ')';
 
             changes += 2;
-        
         }
         cout << brackets << '\n';
 
-        
     }while (maxcurve > b);
-
-
-
-    
 
     auto t1 = chrono::high_resolution_clock::now();
 
