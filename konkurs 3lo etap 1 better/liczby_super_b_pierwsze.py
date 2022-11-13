@@ -1,9 +1,10 @@
 import time
-from math import sqrt 
+import sys
+
 
 t0 = time.time()
 
-a, b = map(int, input().split(" "))
+a, b = 2,100000000#map(int, input().split(" "))
 
 def eratost(a, b):
 
@@ -155,26 +156,29 @@ def atkin(d, limit):
         r += 1
 
 
-    for n in range(2, limit+1):
-        if sieve[n]:
-            suma = 0
-            f = n
-            while f > 0:
-                suma += f%10
-                f = f // 10
+    # for n in range(2, limit+1):
+    #     if sieve[n]:
+    #         suma = 0
+    #         f = n
+    #         while f > 0:
+    #             suma += f%10
+    #             f = f // 10
 
-            suma2 = 0
-            g = n
-            while g > 0:
-                suma2 += g%2
-                g = g // 2
+    #         suma2 = 0
+    #         g = n
+    #         while g > 0:
+    #             suma2 += g%2
+    #             g = g // 2
 
-            if sieve[suma] == True and sieve[suma2] == True and n >= d:
-                # print(n, end=" ")
-                yes += 1
+    #         if sieve[suma] == True and sieve[suma2] == True and n >= d:
+    #             # print(n, end=" ")
+    #             yes += 1
 
     t1 = time.time()
-    print("Ile liczb: ",yes)
+    # print("Ile liczb: ",yes)
+    
+
+    
     
     print("Time: ", t1-t0)
 
@@ -182,7 +186,7 @@ def atkin(d, limit):
 
 def Atkin_2(d, limit):
 
-    t0 = time.time()
+    # t0 = time.time()
 
     if d<2:     # checking if the range is correct
         d=2
@@ -203,21 +207,7 @@ def Atkin_2(d, limit):
             suma += n%s
             n //= s
         return suma
-
-    # if prime number
-    def pn(n):
-        if n<2:
-            return False
-        if n==2:
-            return True
-        if n%2==0:
-            return False
-        for i in range(3,int(n**0.5)+1,2):
-            if n%i==0:
-                return False
-        return True
-
-
+    
     suma = 0
 
     #algorythm
@@ -226,12 +216,83 @@ def Atkin_2(d, limit):
             if E[ds(i,10)] and E[ds(i,2)]:
                 suma += 1
 
-    print(suma)
+    # print(suma)
 
     t1 = time.time()
 
     print("time: ", t1 - t0)
 
+
+def pioter_better(a,b):
+    from time import time
+
+    # a, b = 2, 10#[int(x) for x in input().split()] # a >= 2
+
+    b += 1
+
+    # t0 = time()
+
+    sbp = 0
+
+
+    pn = [True] * (b)
+    pn[1] = False
+
+
+    #eratostenes
+    for i in range(2, int(b**0.5)):   
+        if pn[i]:
+            for j in range(2 * i, b, i):
+                pn[j] = False
+
+
+    def nt(n,s):
+        """returns digit sum or bit sum
+
+        Args:
+            n (int): number to sum
+            s (int): 10 or 2 relative to the calculation that we want to perform
+
+        Returns:
+            int: sum that we wanted
+        """
+        
+        suma = 0
+        while n > 0:
+            suma += n%s
+            n //= s
+        return suma
+
+
+    for i in range(a,b):
+        if pn[i]:
+            if pn[nt(i,2)] and pn[nt(i,10)]:
+                sbp += 1
+                # print(i)
+
+    print(sbp)
+
+
+def badass(a,b):
+    x = 1
+    with open("test.txt", "r") as file:
+        lista = file.readline()
+        
+    while True:
+        try:
+            c = lista.index(str(a))
+            d = lista.index(str(b))
+            
+        except ValueError:
+            if x == 1:
+                a += 1
+                x = 2
+            else:
+                b -= 1
+                x = 1
+        else:
+            print(len(lista[c:d]))
+            break
 
 #eratost(a, b)
 
@@ -240,5 +301,11 @@ def Atkin_2(d, limit):
 atkin(a, b)
 
 
-#this is the best one
+# just for printing into the file
+# with open("test.txt", "w") as file:
+#     sys.stdout = file
 Atkin_2(a, b)
+
+# badass(a,b)
+
+#this is the best one
