@@ -1,16 +1,11 @@
-with open("input.txt", "r") as f:
-    x = f.readlines()
-
-
-n, k = map(int, x[0].split(" "))
+n, k = map(int, input().split(" "))
 
 w = {}
 p = []
 
-
 # adding the castles to the graph dictionary
 for i in range(1, n):
-    a, b, c = map(int, x[i].split(" "))
+    a, b, c = map(int, input().split(" "))
 
     if a not in w:
         w[a] = {b: c}
@@ -23,16 +18,10 @@ for i in range(1, n):
         w[b][a] = c
 
 # adding the knights to the list
-for i in range(n, n+k):
-    p.append(int(x[i]))
-
-
-print(w)
-print(p)
-
+for i in range(n, n + k):
+    p.append(int(input()))
 
 # graph class
-
 class Graph:
     def __init__(self, graph):
         self.graph = graph
@@ -61,16 +50,8 @@ class Graph:
     def get_path(self):
         return self.path
 
+
 podr = []
-
-def permutations(p):
-    l = []
-    for i in range(len(p)):
-        for j in range(len(p)):
-            if i != j:
-                l.append([p[i], p[j]])
-
-    return l
 
 for i in range(k):
     dist = 0
@@ -85,17 +66,14 @@ for i in range(k):
         g.dfs(1, p[i])
         dist += g.get_dist() * 2  # *2 because the knight has to go back to the castle
     else:
-        for j in range(len(podr)-1):
-            g.dfs(podr[j], podr[j+1])
-            dist += g.get_dist()*(len(podr)+1)
+        for j in range(len(podr) - 1):
+            g.dfs(podr[j], podr[j + 1])
+            dist += g.get_dist() * (len(podr) + 1)
 
         g.dfs(podr[-1], 1)
         dist += g.get_dist()
 
     print(dist)
-
-# {1: {4: 3, 3: 6, 2: 5}, 4: {1: 3, 5: 1}, 3: {1: 6}, 2: {1: 5}, 5: {4: 1}}
-
 
 
 
