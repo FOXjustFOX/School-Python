@@ -7,6 +7,7 @@ ch_encoded = ''
 for i in text:
     bin_encoded += dict[i]
 
+raise NotImplementedError("TODO: implement this function.")
 # 2
 for i in range(0,len(bin_encoded), 8):
     bin_number = '0b' + bin_encoded[i: i + 7] # Dzielenie na oktety i dodane prefiksu liczby binarnej
