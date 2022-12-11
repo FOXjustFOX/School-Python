@@ -1,24 +1,25 @@
+#working, 100% on szkopuł
+
+import decimal
+
 n = int(input())
+
 suma = 0
-l = 1
-# this is the function that sums the numbers
 
 for i in range(n):
-    x = (input()).replace(",", ".")
-    x = float(x)
-    suma += x
+    x = input().replace(",", ".")
+    decimal.getcontext().prec = 200
 
-for i in range(len(str(suma))):
-    if suma - int(suma) != 0:
-        if str(suma)[i] == str(suma)[i+1]:
-            l = i
-            break
-    else:
-        l = 0
-        # print(int(suma))
+    suma = decimal.Decimal(suma) + decimal.Decimal(x)
 
-if l == 0:
-    print(int(suma))
+if suma - int(suma) == 0:
+    print(str(int(suma)).replace(".", ","))
+elif 'E' in [x for x in str(suma)]:
+    g = str(suma)
+    g = g[-2:]
+    print(f'{suma:.{g}f}'.replace(".", ","))
+elif suma * 10 == 9:
+    print(str(f'{suma:.1f}').replace(".", ","))
+
 else:
-    print(str(round(suma,l)).replace(".", ","))
-
+    print(str(suma).replace(".", ","))
