@@ -1,4 +1,4 @@
-from time import time
+# from time import time
 
 n = int(input())
 
@@ -23,11 +23,23 @@ E[2] = False
 
 
 def t(x):
+    # We will store all factors in `result`
+    result = []
+    i = 1
     l = 0
-    for i in range(1,x+1):
+    # This will loop from 1 to int(sqrt(x))
+    while i*i <= x:
+        # Check if i divides x without leaving a remainder
         if x % i == 0:
+            result.append(i)
             l+=1
-    return l
+            # Handle the case explained in the 4th
+            if x//i != i: # In Python, // operator performs integer/floored division
+                result.append(x//i)
+                l+=1
+        i += 1
+    # Return the list of factors of x
+    return l, result
 
 
 for i in lista:
@@ -39,20 +51,16 @@ for i in lista:
         print('')
 
     else:
-        j = 1
-        while j <= i:
-        # for j in range(1,len(E)):
-        #     if j <= i:
-            if E[j] == True:
-                if i % j == 0:
-                    c += 1
-            j += 1
+        l, lista = t(i)
+        for j in lista:
+            if j % 2 != 0 and E[j]:
+                c+=1
         if c == 3:
-            print(t(i),' ciekawa')
+            print(l,'ciekawa')
         else:
-            print(t(i))
+            print(l)
 
-print(time()-t0)
+# print(time()-t0)
 
 
 
