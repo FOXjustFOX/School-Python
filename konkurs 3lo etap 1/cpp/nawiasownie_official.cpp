@@ -39,6 +39,8 @@ int main(){
         
         }
 
+int 
+
 
     cout << changes << '\n' ;
 

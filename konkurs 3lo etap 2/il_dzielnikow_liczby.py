@@ -18,27 +18,21 @@ for i in range(2,int(limit**0.5+1)):
     if E[i] == True:
         for j in range(2*i,limit,i):
             E[j] = False
-E[1] = False
 E[2] = False
 
 
 def t(x):
-    # We will store all factors in `result`
     result = []
     i = 1
     l = 0
-    # This will loop from 1 to int(sqrt(x))
     while i*i <= x:
-        # Check if i divides x without leaving a remainder
         if x % i == 0:
             result.append(i)
             l+=1
-            # Handle the case explained in the 4th
-            if x//i != i: # In Python, // operator performs integer/floored division
+            if x//i != i:
                 result.append(x//i)
                 l+=1
         i += 1
-    # Return the list of factors of x
     return l, result
 
 
