@@ -2,6 +2,8 @@
   "cSpell.enableFiletypes": [
     "python"
   ],
+  "python.analysis.completeFunctionParens": true,
+
   "cSpell.language": "en,pl",
   "C_Cpp_Runner.cCompilerPath": "/usr/bin/gcc",
   "C_Cpp_Runner.cppCompilerPath": "/usr/bin/g++",

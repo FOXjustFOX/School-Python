@@ -1,4 +1,5 @@
 from time import time
+from itertools import permutations
 
 znaki = [",", " ", ".", "-"]
 
@@ -8,7 +9,7 @@ def good(a):
     return a.translate({ord(i): None for i in znaki})
 
 
-with open('test.txt', 'r') as f:
+with open('konkurs 3lo etap 2/test.txt', 'r') as f:
     n = int(f.readline())
 
     words = [''] * n
@@ -16,26 +17,20 @@ with open('test.txt', 'r') as f:
     for i in range(n):
         words[i] = good(f.readline().strip())
 
-
-
-
-t0 = time()
+# t0 = time()
 
 c = 0
-i = 0
-j = 0
+    
+for i in permutations(words, 2):
+    c_word = f'{i[0]}{i[1]}'
+    g_word = f'{i[1]}{i[0]}'
+    if c_word == c_word[::-1]:
+        c += 1
+    if g_word == g_word[::-1]:
+        c += 1
 
-
-for word in words:
-    for other in words:
-        if i != j:
-            c_word = f'{word}{other}'
-            if c_word == c_word[::-1]:
-                c += 1
-        j += 1
-    j = 0
-    i += 1
-
-print(c)
+print(int(c/2))
 
 print("time: ", "%.10f" % (time() - t0))
+
+

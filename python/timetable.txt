@@ -1,0 +1,33 @@
+monday, 1, matematyka, Oleś Krzysztof, 08:30 - 09:15
+monday, 2, język polski, Noworzyn, 09:20 - 10:05
+monday, 3, matematyka, Oleś Krzysztof, 10:15 - 11:00
+monday, 4, matematyka, Oleś Krzysztof, 11:05 - 11:50
+monday, 5, WF, Burda Anna (3C 2. Grupa), 12:10 - 12:55
+monday, 6, WF, Burda Anna (3C 2. Grupa), 13:15 - 14:00
+tuesday, 0, język angielski, Milczarska Jolanta (3C 2. Grupa), 07:35 - 08:20
+tuesday, 1, język angielski, Milczarska Jolanta (3C 2. Grupa), 08:30 - 09:15
+tuesday, 2, język angielski, Ostafiński Tomasz (3C 2. Grupa), 09:20 - 10:05
+tuesday, 3, matematyka, Oleś Krzysztof, 10:15 - 11:00
+tuesday, 4, język polski, Grunda Iwona, 11:05 - 11:50
+tuesday, 5, geografia, Tudyka Anna, 12:10 - 12:55
+tuesday, 6, biologia, Mizerska Anna, 13:15 - 14:00
+tuesday, 7, podstawy przedsiębiorczości, Gliga Anna, 14:10 - 14:55
+tuesday, 8, informatyka, Jarczewski Krzysztof (3C 1. Grupa), 15:00 - 15:45
+wednesday, 2, metody numeryczne w fizyce, Grunda Iwona, 09:20 - 10:05
+wednesday, 3, język angielski, Milczarska Jolanta (3C 2. Grupa), 10:15 - 11:00
+wednesday, 4, geografia, Gliga Anna, 11:05 - 11:50
+wednesday, 5, historia, Langer Małgorzata, 12:10 - 12:55
+wednesday, 6, matematyka, Gaweł Emilia, 13:15 - 14:00
+wednesday, 7, język angielski, Trejderowska Beata (3C 2. Grupa), 14:10 - 14:55
+wednesday, 8, język angielski, Trejderowska Beata (3C 2. Grupa), 15:00 - 15:45
+thursday, 1, historia, Langer Małgorzata, 08:30 - 09:15
+thursday, 2, język włoski, Ochabowicz Małgorzata (3C 2. Grupa), 09:20 - 10:05
+thursday, 3, język włoski, Ochabowicz Małgorzata (3C 2. Grupa), 10:15 - 11:00
+thursday, 4, język polski, Józefiak Bożena, 11:05 - 11:50
+thursday, 5, matematyka, Gaweł Emilia, 12:10 - 12:55
+thursday, 6, fizyka, Ogaza Adam, 13:15 - 14:00
+thursday, 7, informatyka, Jarczewski Krzysztof (3C 1. Grupa), 14:10 - 14:55
+thursday, 8, informatyka, Jarczewski Krzysztof (3C 1. Grupa), 15:00 - 15:45
+friday, 5, matematyka, Oleś Krzysztof, 12:10 - 12:55
+friday, 6, język angielski, Milczarska Jolanta (3C 2. Grupa), 13:15 - 14:00
+friday, 7, WF, Burda Anna (3C 2. Grupa), 14:10 - 14:55

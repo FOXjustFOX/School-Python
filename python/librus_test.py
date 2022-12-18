@@ -1,29 +1,39 @@
 from librus import LibrusSession
+import sys, os
 
 
-session = LibrusSession()
+if sys.argv[1] == 'login':
 
-session.login('8431309u', 'Kwiatek1')
+    session = LibrusSession()
 
-lessons_plan = session.schedule()
+    session.login('8431309u', 'Kwiatek1')
 
-weekdays = {
-    1: 'monday',
-    2: 'tuesday',
-    3: 'wednesday',
-    4: 'thursday',
-    5: 'friday',
-}
+    lessons_plan = session.schedule()
+
+    weekdays = {
+        1: 'monday',
+        2: 'tuesday',
+        3: 'wednesday',
+        4: 'thursday',
+        5: 'friday',
+    }
 
 
-for i in range(len(l)):
-    g = l[i]
-    print(weekdays[g.day+1], g.index, g.name, g.teacher, g.time)
-    try:
-        if l[i+1].day > g.day:
-            print('\n')
-    except IndexError:
-        pass
-    
-    
-# print(session.schedule()[9].day)
+    for i in range(len(lessons_plan)):
+        g = lessons_plan[i]
+
+        print(f'{weekdays[g.day + 1]}, {g.index}, {g.name}, {g.teacher}, {g.time}\n')
+
+else:
+    c = open('~/timetable.txt', 'r')
+    o_c = open('~/old_timetable.txt', 'r')
+
+    for i in range(len(c)):
+        if c[i] != o_c[i]:
+            msg = ""
+            os.system(f'curl \
+                    -H "Title: Zmiana w planie lekcji" \
+                      -H "Priority: urgent" \
+                      -H "Tags: warning" \
+                      -d "{msg}" \
+                      ntfy.sh/planlekcjiupdates')
