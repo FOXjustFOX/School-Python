@@ -27,7 +27,7 @@ int main()
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-	int n,m,z,mi,d,i;
+	int n,m,z,mi,d,i;Þ
 	char c;
 	cin>>n>>m;
 	hell[0]=n;
